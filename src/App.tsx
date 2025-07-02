@@ -3,7 +3,19 @@ import Header from './components/Header';
 import Table from './components/Table';
 
 // Sample data (limited to 25 rows)
-const sampleData: { sNo: number; jobRequest: string; submitted: string; status: string; submitter: string; url: string; assigned: string; priority: string; dueDate: string; extract: string; action: string }[] = Array.from({ length: 25 }, (_, i) => ({
+const sampleData: {
+  sNo: number;
+  jobRequest: string;
+  submitted: string;
+  status: string;
+  submitter: string;
+  url: string;
+  assigned: string;
+  priority: string;
+  dueDate: string;
+  extract: string;
+  action: string;
+}[] = Array.from({ length: 25 }, (_, i) => ({
   sNo: i + 1,
   jobRequest: `Job ${i + 1}`,
   submitted: `2023-0${i + 1}-01`,
