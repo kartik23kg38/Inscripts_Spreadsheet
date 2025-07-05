@@ -1,8 +1,8 @@
 // @ts-ignore
-import { IoEllipsisHorizontal } from 'react-icons/io5';
-import { GiOpenFolder } from 'react-icons/gi';
+import { JSX } from 'react';
 
-function Header() {
+
+function Header(): JSX.Element {
   return (
     <>
       <div className="flex items-center justify-between bg-white shadow-md">
@@ -66,9 +66,6 @@ function Header() {
             </button>
             <button className="text-gray-600 px-2 tracking-wide hover:text-gray-800">
               Sort
-            </button>
-            <button className="text-gray-600 px-2 tracking-wide hover:text-gray-800">
-              Filter
             </button>
             <button className="text-gray-600 px-2 tracking-wide hover:text-gray-800">
               Filter
