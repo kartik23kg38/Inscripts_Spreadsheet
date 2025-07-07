@@ -1,8 +1,12 @@
-// @ts-ignore
 import { JSX } from 'react';
+import React from 'react';
 
+interface HeaderProps {
+  title?: string; // Optional title prop
+  items?: string[]; // Optional array of strings for items
+}
 
-function Header(): JSX.Element {
+function Header({ title, items }: HeaderProps = {}): JSX.Element {
   return (
     <>
       <div className="flex items-center justify-between bg-white shadow-md">
@@ -45,7 +49,7 @@ function Header(): JSX.Element {
         </div>
       </div>
 
-      <div className="flex gap-x-2 p-4 shadow-lg items-center space-x-1 bg-green-400 rounded-lg">
+      <div className="flex gap-x-2 p-4 shadow-lg items-center space-x-1 bg-gray-400 rounded-lg">
         <div className="text-gray-600">
           <span className="p-2 rounded-lg">Tool bar</span>
         </div>
