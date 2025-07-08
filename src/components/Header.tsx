@@ -49,13 +49,13 @@ function Header({ title, items }: HeaderProps = {}): JSX.Element {
         </div>
       </div>
 
-      <div className="flex gap-x-2 p-4 shadow-lg items-center space-x-1 bg-gray-400 rounded-lg">
-        <div className="text-gray-600">
+      <div className="flex gap-x-2 p-2 shadow-lg items-center rounded-lg">
+        <div className="text-gray-600 ">
           <span className="p-2 rounded-lg">Tool bar</span>
         </div>
 
         {/* Separator */}
-        <div className="separator py-1 font-bold text-gray-600">
+        <div className="separator font-bold text-gray-600">
           |
         </div>
 
