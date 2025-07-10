@@ -1,4 +1,14 @@
-import { ChevronsRight, ListFilter, UnfoldVertical } from 'lucide-react';
+import {
+  ArrowDownToLine,
+  ArrowDownToLineIcon,
+  ArrowUpToLine,
+  Bell,
+  ChevronsRight,
+  ListFilter,
+  Search,
+  Share2,
+  UnfoldVertical,
+} from 'lucide-react';
 import React, { JSX } from 'react';
 import { EyeOff } from 'lucide-react';
 import { ArrowUpDown } from 'lucide-react';
@@ -48,13 +58,30 @@ const Header: React.FC<HeaderProps> = ({
             ))}
           </div>
         </div>
-        <div className="actions-right flex items-center space-x-2">
-          <input
-            type="text"
-            placeholder="Search within the sheet"
-            className="bg-gray-100 text-sm rounded-lg pl-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 w-64"
-            onChange={handleSearch}
-          />
+        <div className="actions-right flex items-center space-x-4">
+          {/* Search Input with Icon */}
+          <div className="relative">
+            <Search
+              className="absolute left-3 top-2.5 text-gray-400"
+              size={16}
+            />
+            <input
+              type="text"
+              placeholder="Search within the sheet"
+              className="bg-gray-100 text-sm rounded-lg pl-9 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 w-64"
+              onChange={handleSearch}
+            />
+          </div>
+
+          {/* Notification Icon with Badge */}
+          <div className="relative">
+            <Bell size={20} className="text-gray-700" />
+            <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-semibold px-1 rounded-full">
+              2
+            </span>
+          </div>
+
+          {/* Profile */}
           <div className="profile flex items-center p-1">
             <div className="w-6 h-6 rounded-full bg-purple-500 flex items-center justify-center">
               <span className="text-white text-sm">JD</span>
@@ -126,26 +153,31 @@ const Header: React.FC<HeaderProps> = ({
             className="actions-right flex items-center justify-between space-x-1"
             style={{ width: '487px', height: '36px' }}
           >
+            <div>
+              <button
+                className="bg-white border-2 text-gray-600 p-2 rounded hover:bg-gray-100 w-[100px] text-sm flex items-center justify-center space-x-1"
+                onClick={() => handleButtonClick('Import')}
+              >
+                <ArrowDownToLineIcon size={16} stroke="gray" />
+                <span>Import</span>
+              </button>
+            </div>
             <button
-              className="bg-white border-2 text-gray-600 p-2 rounded hover:bg-gray-100 w-[100px] text-sm"
-              onClick={() => handleButtonClick('Import')}
-            >
-              Import
-            </button>
-            <button
-              className="bg-white border-2 text-gray-600 p-2 rounded hover:bg-gray-100 w-[100px] text-sm"
+              className="bg-white border-2 text-gray-600 p-2 rounded hover:bg-gray-100 w-[100px] text-sm flex items-center justify-center space-x-1"
               onClick={() => handleButtonClick('Export')}
             >
-              Export
+              <ArrowUpToLine size={16} stroke="gray" />
+              <span>Export</span>
             </button>
             <button
-              className="bg-white border-2 text-gray-600 p-2 rounded hover:bg-gray-100 w-[100px] text-sm"
+              className="bg-white border-2 text-gray-600 p-2 rounded hover:bg-gray-100 w-[100px] text-sm flex items-center justify-center space-x-1"
               onClick={() => handleButtonClick('Share')}
             >
-              Share
+              <Share2 size={16} stroke="gray" />
+              <span>Share</span>
             </button>
             <button
-              className="bg-green-800 border text-white py-2 px-4 rounded hover:bg-green-900 text-sm"
+              className="bg-green-800 border text-white py-2 px-6 tracking-wider rounded-lg hover:bg-green-900 text-sm"
               onClick={() => handleButtonClick('New Action')}
             >
               New Action

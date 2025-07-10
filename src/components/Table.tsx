@@ -192,7 +192,7 @@ const Table: React.FC<TableProps> = (): JSX.Element => {
               <th className="border-2 border-white bg-green-200 text-sm font-medium text-gray-700 w-32 p-1">
                 <div className="flex justify-center items-center space-x-1 rounded-lg">
                   <div className="text-gray-600 font-semibold">ABC</div>
-                  <Ellipsis size={16} className="stroke-white" />
+                  <Ellipsis size={16} className="stroke-gray" />
                 </div>
               </th>
 
