@@ -1,5 +1,8 @@
+import { ChevronsRight, ListFilter, UnfoldVertical } from 'lucide-react';
 import React, { JSX } from 'react';
-import { MdKeyboardDoubleArrowRight } from 'react-icons/md';
+import { EyeOff } from 'lucide-react';
+import { ArrowUpDown } from 'lucide-react';
+// import { MdKeyboardDoubleArrowRight } from 'react-icons/md';
 
 // Type assertion to fix TS2786
 // const Icon = MdKeyboardDoubleArrowRight as React.ComponentType<{ className?: string }>;
@@ -10,7 +13,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({
-  title = 'Spreadsheet 3',
+  // title = 'Spreadsheet 3',
   items = ['Workspace', 'Folder 2', 'Spreadsheet 3'],
 }): JSX.Element => {
   const handleBreadcrumbClick = (item: string) => {
@@ -61,43 +64,62 @@ const Header: React.FC<HeaderProps> = ({
         </div>
       </div>
 
-      <div className="bg-gray-100 flex gap-x-2 p-2 shadow-lg items-center rounded-lg">
-        <div className="text-gray-600 flex items-center space-x-2">
-          <span className="p-2 rounded-lg text-sm">Tool bar</span>
-          {/* <Icon className="w-5 h-5" /> */}
+      <div className="bg-white borde-t border-t-2 flex gap-x-2 p-2 shadow-lg items-center rounded-lg">
+        <div className=" flex items-center ">
+          <span className="pl-0.5 pr-1 rounded-lg ">Tool bar</span>
+          <ChevronsRight size={20} className="pt-1" color="gray" />
         </div>
 
-        <div className="separator font-bold text-gray-600">|</div>
+        <div className="separator text-gray-300">|</div>
 
         <div className="flex items-center w-[1318px] justify-between">
           <div
             className="table-controls flex items-center space-x-4"
             style={{ width: '871px', height: '36px' }}
           >
-            <button
-              className="text-gray-600 px-2 text-sm tracking-wide hover:text-gray-800"
-              onClick={() => handleButtonClick('Hide fields')}
-            >
-              Hide fields
-            </button>
-            <button
-              className="text-gray-600 px-2 text-sm tracking-wide hover:text-gray-800"
-              onClick={() => handleButtonClick('Sort')}
-            >
-              Sort
-            </button>
-            <button
-              className="text-gray-600 px-2 text-sm tracking-wide hover:text-gray-800"
-              onClick={() => handleButtonClick('Filter')}
-            >
-              Filter
-            </button>
-            <button
-              className="text-gray-600 px-2 text-sm tracking-wide hover:text-gray-800"
-              onClick={() => handleButtonClick('Cell view')}
-            >
-              Cell view
-            </button>
+            {/* Hide fields */}
+            <div className="flex items-center space-x-1">
+              <EyeOff size={16} />
+              <button
+                className="text-gray-600 text-sm tracking-wide hover:text-gray-800"
+                onClick={() => handleButtonClick('Hide fields')}
+              >
+                Hide fields
+              </button>
+            </div>
+
+            {/* Sort */}
+            <div className="flex items-center space-x-1">
+              <ArrowUpDown size={16} />
+              <button
+                className="text-gray-600 px-2 text-sm tracking-wide hover:text-gray-800"
+                onClick={() => handleButtonClick('Sort')}
+              >
+                Sort
+              </button>
+            </div>
+
+            {/* Filter */}
+            <div className="flex items-center space-x-1">
+              <ListFilter size={16} />
+              <button
+                className="text-gray-600 px-2 text-sm tracking-wide hover:text-gray-800"
+                onClick={() => handleButtonClick('Filter')}
+              >
+                Filter
+              </button>
+            </div>
+
+            {/* Cell view */}
+            <div className="flex items-center space-x-1">
+              <UnfoldVertical size={16} />
+              <button
+                className="text-gray-600 px-2 text-sm tracking-wide hover:text-gray-800"
+                onClick={() => handleButtonClick('Cell view')}
+              >
+                Cell view
+              </button>
+            </div>
           </div>
 
           <div
@@ -105,25 +127,25 @@ const Header: React.FC<HeaderProps> = ({
             style={{ width: '487px', height: '36px' }}
           >
             <button
-              className="bg-white text-gray-600 p-2 rounded hover:bg-gray-100 w-[100px] text-sm"
+              className="bg-white border-2 text-gray-600 p-2 rounded hover:bg-gray-100 w-[100px] text-sm"
               onClick={() => handleButtonClick('Import')}
             >
               Import
             </button>
             <button
-              className="bg-white text-gray-600 p-2 rounded hover:bg-gray-100 w-[100px] text-sm"
+              className="bg-white border-2 text-gray-600 p-2 rounded hover:bg-gray-100 w-[100px] text-sm"
               onClick={() => handleButtonClick('Export')}
             >
               Export
             </button>
             <button
-              className="bg-white text-gray-600 p-2 rounded hover:bg-gray-100 w-[100px] text-sm"
+              className="bg-white border-2 text-gray-600 p-2 rounded hover:bg-gray-100 w-[100px] text-sm"
               onClick={() => handleButtonClick('Share')}
             >
               Share
             </button>
             <button
-              className="bg-green-800 text-white py-2 px-4 rounded hover:bg-green-900 text-sm"
+              className="bg-green-800 border text-white py-2 px-4 rounded hover:bg-green-900 text-sm"
               onClick={() => handleButtonClick('New Action')}
             >
               New Action

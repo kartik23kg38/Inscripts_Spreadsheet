@@ -1,4 +1,14 @@
 import React, { JSX, useRef, useEffect } from 'react';
+import {
+  BriefcaseBusiness,
+  Captions,
+  ChevronDown,
+  Ellipsis,
+  Globe,
+  RefreshCcw,
+  UserRound,
+  UserRoundCheckIcon,
+} from 'lucide-react';
 
 // Interface for table row data
 interface RowData {
@@ -19,8 +29,7 @@ interface RowData {
 interface TableProps {
   data: RowData[];
 }
-
-const Table: React.FC<TableProps> = ({ data }): JSX.Element => {
+const Table: React.FC<TableProps> = (): JSX.Element => {
   const tableRef = useRef<HTMLTableElement>(null);
 
   // Sample data (move to parent component if needed)
@@ -169,9 +178,10 @@ const Table: React.FC<TableProps> = ({ data }): JSX.Element => {
               >
                 <div className="flex items-center p-1 rounded-lg bg-gray-200">
                   <span className="text-blue-600 text-sm">📊</span>
-                  <span className="ml-2 text-gray-600 text-sm">
+                  <span className="ml-2 text-gray-600 text-sm pr-2">
                     Q3 Financial Overview
                   </span>
+                  <RefreshCcw size={16} color="red" />
                 </div>
               </th>
               <th className="border-2 border-white text-left text-xs font-medium text-gray-700 p-1">
@@ -180,10 +190,12 @@ const Table: React.FC<TableProps> = ({ data }): JSX.Element => {
                 </div>
               </th>
               <th className="border-2 border-white bg-green-200 text-sm font-medium text-gray-700 w-32 p-1">
-                <div className="text-center rounded-lg items-center">
+                <div className="flex justify-center items-center space-x-1 rounded-lg">
                   <div className="text-gray-600 font-semibold">ABC</div>
+                  <Ellipsis size={16} className="stroke-white" />
                 </div>
               </th>
+
               <th
                 colSpan={2}
                 className="border-2 border-white p-1 text-left text-sm font-medium text-gray-700 w-60 bg-purple-300"
@@ -204,31 +216,69 @@ const Table: React.FC<TableProps> = ({ data }): JSX.Element => {
             <tr className="bg-gray-50">
               <th className="border border-gray-300 p-0.5 text-xs font-medium text-gray-600"></th>
               <th className="border border-gray-300 p-1 w-[60px]">
-                <div className="text-xs text-left text-gray-600 truncate">
-                  📋 Job Request
+                <div className="flex items-center justify-between space-x-1">
+                  <div className="flex items-center space-x-1">
+                    <BriefcaseBusiness size={16} color="gray" />
+                    <div className="text-xs text-left text-gray-600 truncate">
+                      Job Request
+                    </div>
+                  </div>
+                  <ChevronDown size={18} color="gray" />
                 </div>
               </th>
-              <th className="border border-gray-300 p-0.5 border-l-0 border-r w-[60px]">
-                <div className="text-xs text-gray-600 truncate">
-                  📅 Submitted
+              <th className="border border-gray-300 p-1 w-[60px]">
+                <div className="flex items-center justify-between space-x-1">
+                  <div className="flex items-center space-x-1">
+                    <Captions size={16} color="gray" />
+                    <div className="text-xs text-left text-gray-600 truncate">
+                      Submitted
+                    </div>
+                  </div>
+                  <ChevronDown size={18} color="gray" />
                 </div>
               </th>
-              <th className="border border-gray-300 p-0.5 border-l-0 border-r w-[60px]">
-                <div className="text-xs text-gray-600 truncate">⭕ Status</div>
-              </th>
-              <th className="border border-gray-300 p-0.5 border-l-0 w-[60px]">
-                <div className="text-xs text-gray-600 truncate">
-                  👤 Submitter
+              <th className="border border-gray-300 p-1 w-[60px]">
+                <div className="flex items-center justify-between space-x-1">
+                  <div className="flex items-center space-x-1">
+                    <div className="bg-gray-300 rounded-full w-4 h-4">
+                      <ChevronDown size={16} color="white" />
+                    </div>
+                    <div className="text-xs text-left text-gray-600 truncate">
+                      Status
+                    </div>
+                  </div>
+                  <ChevronDown size={18} color="gray" />
                 </div>
               </th>
-              <th className="border border-gray-300 p-0.5 w-[60px]">
-                <div className="text-xs text-gray-600 truncate">🔗 URL</div>
-              </th>
-              <th className="border border-gray-300 p-0.5 border-l-0 border-r w-[60px]">
-                <div className="text-xs text-gray-600 truncate">
-                  ✅ Assigned
+              <th className="border border-gray-300 p-1 w-[60px]">
+                <div className="flex items-center justify-between space-x-1">
+                  <div className="flex items-center space-x-1">
+                    <UserRound size={16} color="gray" />
+                    <div className="text-xs text-left text-gray-600 truncate">
+                      Submitter
+                    </div>
+                  </div>
+                  <ChevronDown size={18} color="gray" />
                 </div>
               </th>
+              <th className="border border-gray-300 p-1 w-[60px]">
+                <div className="flex items-center justify-between space-x-1">
+                  <div className="flex items-center space-x-1">
+                    <Globe size={16} color="gray" />
+                    <div className="text-xs text-left text-gray-600 truncate">
+                      URL
+                    </div>
+                  </div>
+                  <ChevronDown size={18} color="gray" />
+                </div>
+              </th>
+              <th className="border border-gray-300 p-0.5 border-l-0 border-r w-[100px]">
+                <div className="flex items-center space-x-1 pl-1">
+                  <UserRoundCheckIcon size={16} />
+                  <div className="text-xs text-gray-600 truncate">Assigned</div>
+                </div>
+              </th>
+
               <th className="border border-gray-300 p-1 w-16">
                 <div className="text-xs text-left text-gray-600">
                   ⚡ Priority
@@ -251,7 +301,7 @@ const Table: React.FC<TableProps> = ({ data }): JSX.Element => {
             {tableData.map((row, index) => (
               <tr key={index} className="hover:bg-gray-50">
                 <td
-                  className="bg-red-400 border border-gray-300 text-center text-sm text-gray-700 p-0.5"
+                  className="border border-gray-300 text-center text-sm text-gray-700 p-0.5"
                   onClick={() => handleCellClick('sNo', row.sNo.toString())}
                 >
                   {row.sNo}
@@ -337,13 +387,13 @@ const Table: React.FC<TableProps> = ({ data }): JSX.Element => {
                   className="border border-gray-300 p-0.5 w-16 text-center"
                   onClick={() => handleActionClick(row)}
                 >
-                  <span className="text-2xl cursor-pointer">{row.action}</span>
+                  <span className="text-2xl cursor-pointer"></span>
                 </td>
               </tr>
             ))}
             {Array.from({ length: 10 }, (_, i) => (
               <tr key={i + tableData.length + 1} className="hover:bg-gray-50">
-                <td className="border border-gray-300 p-0.5 text-sm text-gray-400">
+                <td className="border border-gray-300 p-0.5 text-sm text-gray-400 text-center">
                   {i + tableData.length + 1}
                 </td>
                 <td className="border border-gray-300 p-0.5 h-6 w-[60px]"></td>
